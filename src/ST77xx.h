@@ -22,8 +22,8 @@
   MIT license, all text above must be included in any redistribution
  **************************************************************************/
 
-#ifndef _ADAFRUIT_ST77XXH_
-#define _ADAFRUIT_ST77XXH_
+#ifndef _ST77XXH_
+#define _ST77XXH_
 
 #include "Arduino.h"
 #include "Print.h"
@@ -84,14 +84,14 @@
 #define	ST77XX_ORANGE     0xFC00
 
 /// Subclass of SPITFT for ST77xx displays (lots in common!)
-class Adafruit_ST77xx : public Adafruit_SPITFT {
+class ST77xx : public Adafruit_SPITFT {
   public:
-    Adafruit_ST77xx(uint16_t w, uint16_t h, int8_t _CS, int8_t _DC,
+    ST77xx(uint16_t w, uint16_t h, int8_t _CS, int8_t _DC,
       int8_t _MOSI, int8_t _SCLK, int8_t _RST = -1, int8_t _MISO = -1);
-    Adafruit_ST77xx(uint16_t w, uint16_t h, int8_t CS, int8_t RS,
+    ST77xx(uint16_t w, uint16_t h, int8_t CS, int8_t RS,
       int8_t RST = -1);
 #if !defined(ESP8266)
-    Adafruit_ST77xx(uint16_t w, uint16_t h, SPIClass *spiClass,
+    ST77xx(uint16_t w, uint16_t h, SPIClass *spiClass,
       int8_t CS, int8_t RS, int8_t RST = -1);
 #endif // end !ESP8266
 
@@ -109,4 +109,4 @@ class Adafruit_ST77xx : public Adafruit_SPITFT {
     void    setColRowStart(int8_t col, int8_t row);
 };
 
-#endif // _ADAFRUIT_ST77XXH_
+#endif // _ST77XXH_

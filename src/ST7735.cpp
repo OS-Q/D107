@@ -1,5 +1,5 @@
-#include "Adafruit_ST77xx.h"
-#include "Adafruit_ST7735.h"
+#include "ST77xx.h"
+#include "ST7735.h"
 
 // CONSTRUCTORS ************************************************************
 
@@ -11,8 +11,8 @@
     @param  sclk  SPI Clock pin #
     @param  rst   Reset pin # (optional, pass -1 if unused)
 */
-Adafruit_ST7735::Adafruit_ST7735(int8_t cs, int8_t dc, int8_t mosi,
-  int8_t sclk, int8_t rst) : Adafruit_ST77xx(ST7735_TFTWIDTH_128,
+ST7735::ST7735(int8_t cs, int8_t dc, int8_t mosi,
+  int8_t sclk, int8_t rst) : ST77xx(ST7735_TFTWIDTH_128,
   ST7735_TFTHEIGHT_160, cs, dc, mosi, sclk, rst) {
 }
 
@@ -22,8 +22,8 @@ Adafruit_ST7735::Adafruit_ST7735(int8_t cs, int8_t dc, int8_t mosi,
     @param  dc   Data/Command pin #
     @param  rst  Reset pin # (optional, pass -1 if unused)
 */
-Adafruit_ST7735::Adafruit_ST7735(int8_t cs, int8_t dc, int8_t rst) :
-  Adafruit_ST77xx(ST7735_TFTWIDTH_128, ST7735_TFTHEIGHT_160, cs, dc, rst) {
+ST7735::ST7735(int8_t cs, int8_t dc, int8_t rst) :
+  ST77xx(ST7735_TFTWIDTH_128, ST7735_TFTHEIGHT_160, cs, dc, rst) {
 }
 
 #if !defined(ESP8266)
@@ -34,8 +34,8 @@ Adafruit_ST7735::Adafruit_ST7735(int8_t cs, int8_t dc, int8_t rst) :
     @param  dc        Data/Command pin #
     @param  rst       Reset pin # (optional, pass -1 if unused)
 */
-Adafruit_ST7735::Adafruit_ST7735(SPIClass *spiClass, int8_t cs, int8_t dc,
-  int8_t rst) : Adafruit_ST77xx(ST7735_TFTWIDTH_128, ST7735_TFTHEIGHT_160,
+ST7735::ST7735(SPIClass *spiClass, int8_t cs, int8_t dc,
+  int8_t rst) : ST77xx(ST7735_TFTWIDTH_128, ST7735_TFTHEIGHT_160,
   spiClass, cs, dc, rst) {
 }
 #endif // end !ESP8266
@@ -203,7 +203,7 @@ static const uint8_t PROGMEM
     @brief  Initialization code common to all ST7735B displays
 */
 /**************************************************************************/
-void Adafruit_ST7735::initB(void) {
+void ST7735::initB(void) {
   commonInit(Bcmd);
   setRotation(0);
 }
@@ -214,7 +214,7 @@ void Adafruit_ST7735::initB(void) {
     @param  options  Tab color from adafruit purchase
 */
 /**************************************************************************/
-void Adafruit_ST7735::initR(uint8_t options) {
+void ST7735::initR(uint8_t options) {
   commonInit(Rcmd1);
   if(options == INITR_GREENTAB) {
     displayInit(Rcmd2green);
@@ -262,7 +262,7 @@ void Adafruit_ST7735::initR(uint8_t options) {
     @param  m  The index for rotation, from 0-3 inclusive
 */
 /**************************************************************************/
-void Adafruit_ST7735::setRotation(uint8_t m) {
+void ST7735::setRotation(uint8_t m) {
   uint8_t madctl = 0;
 
   rotation = m & 3; // can't be higher than 3

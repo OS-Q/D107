@@ -1,7 +1,7 @@
-#ifndef _ADAFRUIT_ST7735H_
-#define _ADAFRUIT_ST7735H_
+#ifndef _ST7735H_
+#define _ST7735H_
 
-#include "Adafruit_ST77xx.h"
+#include "ST77xx.h"
 
 // some flags for initR() :(
 #define INITR_GREENTAB    0x00
@@ -48,13 +48,13 @@
 #define ST7735_ORANGE     ST77XX_ORANGE
 
 /// Subclass of ST77XX for ST7735B and ST7735R TFT Drivers:
-class Adafruit_ST7735 : public Adafruit_ST77xx {
+class ST7735 : public ST77xx {
   public:
-    Adafruit_ST7735(int8_t cs, int8_t dc, int8_t mosi, int8_t sclk,
+    ST7735(int8_t cs, int8_t dc, int8_t mosi, int8_t sclk,
       int8_t rst);
-    Adafruit_ST7735(int8_t cs, int8_t dc, int8_t rst);
+    ST7735(int8_t cs, int8_t dc, int8_t rst);
 #if !defined(ESP8266)
-    Adafruit_ST7735(SPIClass *spiClass, int8_t cs, int8_t dc, int8_t rst);
+    ST7735(SPIClass *spiClass, int8_t cs, int8_t dc, int8_t rst);
 #endif // end !ESP8266
 
     // Differences between displays (usu. identified by colored tab on
@@ -68,4 +68,4 @@ class Adafruit_ST7735 : public Adafruit_ST77xx {
     uint8_t tabcolor;
 };
 
-#endif // _ADAFRUIT_ST7735H_
+#endif // _ST7735H_
