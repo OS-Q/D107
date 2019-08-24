@@ -1,5 +1,5 @@
-#include "ST77xx.h"
-#include "ST7789.h"
+#include "Adafruit_ST77xx.h"
+#include "Adafruit_ST7789.h"
 
 // CONSTRUCTORS ************************************************************
 
@@ -11,8 +11,8 @@
     @param  sclk  SPI Clock pin #
     @param  rst   Reset pin # (optional, pass -1 if unused)
 */
-ST7789::ST7789(int8_t cs, int8_t dc, int8_t mosi,
-  int8_t sclk, int8_t rst) : ST77xx(320, 240, cs, dc, mosi, sclk,
+Adafruit_ST7789::Adafruit_ST7789(int8_t cs, int8_t dc, int8_t mosi,
+  int8_t sclk, int8_t rst) : Adafruit_ST77xx(320, 240, cs, dc, mosi, sclk,
   rst) {
 }
 
@@ -22,8 +22,8 @@ ST7789::ST7789(int8_t cs, int8_t dc, int8_t mosi,
     @param  dc   Data/Command pin #
     @param  rst  Reset pin # (optional, pass -1 if unused)
 */
-ST7789::ST7789(int8_t cs, int8_t dc, int8_t rst) :
-  ST77xx(320, 240, cs, dc, rst) {
+Adafruit_ST7789::Adafruit_ST7789(int8_t cs, int8_t dc, int8_t rst) :
+  Adafruit_ST77xx(320, 240, cs, dc, rst) {
 }
 
 #if !defined(ESP8266)
@@ -34,8 +34,8 @@ ST7789::ST7789(int8_t cs, int8_t dc, int8_t rst) :
     @param  dc        Data/Command pin #
     @param  rst       Reset pin # (optional, pass -1 if unused)
 */
-ST7789::ST7789(SPIClass *spiClass, int8_t cs, int8_t dc,
-  int8_t rst) : ST77xx(320, 240, spiClass, cs, dc, rst) {
+Adafruit_ST7789::Adafruit_ST7789(SPIClass *spiClass, int8_t cs, int8_t dc,
+  int8_t rst) : Adafruit_ST77xx(320, 240, spiClass, cs, dc, rst) {
 }
 #endif // end !ESP8266
 
@@ -86,8 +86,8 @@ static const uint8_t PROGMEM
                    the defines only, the values are NOT the same!)
 */
 /**************************************************************************/
-void ST7789::init(uint16_t width, uint16_t height, uint8_t mode) {
-  // Save SPI data mode. commonInit() calls begin() (in ST77xx.cpp),
+void Adafruit_ST7789::init(uint16_t width, uint16_t height, uint8_t mode) {
+  // Save SPI data mode. commonInit() calls begin() (in Adafruit_ST77xx.cpp),
   // which in turn calls initSPI() (in Adafruit_SPITFT.cpp), passing it the
   // value of spiMode. It's done this way because begin() really should not
   // be modified at this point to accept an SPI mode -- it's a virtual
@@ -124,7 +124,7 @@ void ST7789::init(uint16_t width, uint16_t height, uint8_t mode) {
     @param  m  The index for rotation, from 0-3 inclusive
 */
 /**************************************************************************/
-void ST7789::setRotation(uint8_t m) {
+void Adafruit_ST7789::setRotation(uint8_t m) {
   uint8_t madctl = 0;
 
   rotation = m & 3; // can't be higher than 3
