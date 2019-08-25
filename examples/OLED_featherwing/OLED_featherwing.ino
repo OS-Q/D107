@@ -3,7 +3,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);
+Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire);
 
 // OLED FeatherWing buttons map to different pins depending on board:
 #if defined(ESP8266)
@@ -33,7 +33,7 @@ Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);
 #endif
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   Serial.println("OLED FeatherWing test");
   // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
