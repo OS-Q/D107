@@ -16,7 +16,7 @@
   #define TFT_BACKLIGHT 47 // Display backlight pin
 
 #elif defined(ESP32)
-  #define TFT_CS         5 
+  #define TFT_CS         5
   #define TFT_RST        22 
   #define TFT_DC         21
   //
@@ -31,7 +31,7 @@
   // GND - GND
 #elif defined(ESP8266)
   #define TFT_CS         4
-  #define TFT_RST       -1                                            
+  #define TFT_RST        16                                            
   #define TFT_DC         5
 
 #else
