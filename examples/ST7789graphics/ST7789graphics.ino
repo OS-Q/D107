@@ -9,8 +9,8 @@
   #define TFT_MOSI       13   
   #define TFT_SCLK       14  
 #elif defined(ESP8266)
-  #define TFT_CS        15
-  #define TFT_RST       -1                                            
+  #define TFT_CS        -1
+  #define TFT_RST       4                                            
   #define TFT_DC        5
   #define TFT_MOSI      13   
   #define TFT_SCLK      14  
@@ -21,12 +21,13 @@
 #define TFT_MOSI  11    // for hardware SPI data pin (all of available pins)
 #define TFT_SCLK  13    // for hardware SPI sclk pin (all of available pins)
 #endif
+
 //You can use different type of hardware initialization
 //using hardware SPI (11, 13 on UNO; 51, 52 on MEGA; ICSP-4, ICSP-3 on DUE and etc)
-//Arduino_ST7789 tft = Arduino_ST7789(TFT_DC, TFT_RST); //for display without CS pin
+Arduino_ST7789 tft = Arduino_ST7789(TFT_DC, TFT_RST); //for display without CS pin
 //Arduino_ST7789 tft = Arduino_ST7789(TFT_DC, TFT_RST, TFT_CS); //for display with CS pin
 //or you can use software SPI on all available pins (slow)
-Arduino_ST7789 tft = Arduino_ST7789(TFT_DC, TFT_RST, TFT_MOSI, TFT_SCLK); //for display without CS pin
+//Arduino_ST7789 tft = Arduino_ST7789(TFT_DC, TFT_RST, TFT_MOSI, TFT_SCLK); //for display without CS pin
 //Arduino_ST7789 tft = Arduino_ST7789(TFT_DC, TFT_RST, TFT_MOSI, TFT_SCLK, TFT_CS); //for display with CS pin
 //Arduino_ST7789 tft = Arduino_ST7789(-1, TFT_RST, TFT_MOSI, TFT_SCLK, TFT_CS); //for display with CS pin and DC via 9bit SPI
 

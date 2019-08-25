@@ -1,12 +1,3 @@
-/***************************************************
-  This is a library for the ST7789 IPS SPI display.
-
-  Originally written by Limor Fried/Ladyada for 
-  Adafruit Industries.
-
-  Modified by Ananev Ilia
- ****************************************************/
-
 #ifndef _ADAFRUIT_ST7789H_
 #define _ADAFRUIT_ST7789H_
 
