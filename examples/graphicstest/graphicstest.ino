@@ -1,31 +1,3 @@
-/**************************************************************************
-  This is a library for several Adafruit displays based on ST77* drivers.
-
-  Works with the Adafruit 1.8" TFT Breakout w/SD card
-    ----> http://www.adafruit.com/products/358
-  The 1.8" TFT shield
-    ----> https://www.adafruit.com/product/802
-  The 1.44" TFT breakout
-    ----> https://www.adafruit.com/product/2088
-  The 1.54" TFT breakout
-    ----> https://www.adafruit.com/product/3787
-  The 2.0" TFT breakout
-    ----> https://www.adafruit.com/product/4311
-  as well as Adafruit raw 1.8" TFT display
-    ----> http://www.adafruit.com/products/618
-
-  Check out the links above for our tutorials and wiring diagrams.
-  These displays use SPI to communicate, 4 or 5 pins are required to
-  interface (RST is optional).
-
-  Adafruit invests time and resources providing this open source code,
-  please support Adafruit and open-source hardware by purchasing
-  products from Adafruit!
-
-  Written by Limor Fried/Ladyada for Adafruit Industries.
-  MIT license, all text above must be included in any redistribution
- **************************************************************************/
-
 #include <Adafruit_GFX.h>    // Core graphics library
 #include <Adafruit_ST7735.h> // Hardware-specific library for ST7735
 #include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
@@ -44,7 +16,7 @@
   #define TFT_BACKLIGHT 47 // Display backlight pin
 
 #elif defined(ESP32)
-  #define TFT_CS         5
+  #define TFT_CS         5 
   #define TFT_RST        22 
   #define TFT_DC         21
   //
@@ -57,17 +29,16 @@
   // LED  3.3V
   // VCC  5V
   // GND - GND
-  //
 #elif defined(ESP8266)
   #define TFT_CS         4
-  #define TFT_RST        16                                            
+  #define TFT_RST       -1                                            
   #define TFT_DC         5
 
 #else
   // For the breakout board, you can use any 2 or 3 pins.
   // These pins will also work for the 1.8" TFT shield.
-  #define TFT_CS        10
-  #define TFT_RST        9 // Or set to -1 and connect to Arduino RESET pin
+  #define TFT_CS         9
+  #define TFT_RST       -1 // Or set to -1 and connect to Arduino RESET pin
   #define TFT_DC         8
 #endif
 
@@ -114,10 +85,10 @@ void setup(void) {
 
 #else
   // Use this initializer if using a 1.8" TFT screen:
-  tft.initR(INITR_BLACKTAB);      // Init ST7735S chip, black tab
+  //tft.initR(INITR_BLACKTAB);      // Init ST7735S chip, black tab
 
   // OR use this initializer (uncomment) if using a 1.44" TFT:
-  //tft.initR(INITR_144GREENTAB); // Init ST7735R chip, green tab
+  tft.initR(INITR_144GREENTAB); // Init ST7735R chip, green tab
 
   // OR use this initializer (uncomment) if using a 0.96" 180x60 TFT:
   //tft.initR(INITR_MINI160x80);  // Init ST7735S mini display

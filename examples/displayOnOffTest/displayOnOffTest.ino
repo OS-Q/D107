@@ -1,16 +1,3 @@
-/*
- * This is an example sketch that shows how to toggle the display
- * on and off at runtime to avoid screen burn-in.
- * 
- * The sketch also demonstrates how to erase a previous value by re-drawing the 
- * older value in the screen background color prior to writing a new value in
- * the same location. This avoids the need to call fillScreen() to erase the
- * entire screen followed by a complete redraw of screen contents.
- * 
- * Originally written by Phill Kelley. BSD license.
- * Adapted for ST77xx by Melissa LeBlanc-Williams
- */
-
 #include <Adafruit_GFX.h>    // Core graphics library
 #include <Adafruit_ST7735.h> // Hardware-specific library for ST7735
 #include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
@@ -38,8 +25,8 @@
   // GND - GND
 
 #elif defined(ESP8266)
-  #define TFT_CS         4
-  #define TFT_RST        16                                            
+  #define TFT_CS         -1
+  #define TFT_RST        4                                            
   #define TFT_DC         5
 
 #else
